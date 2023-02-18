@@ -83,3 +83,13 @@ p {
 .btn-success {
   background-color: #5c636a;
 }
+.footer {
+  font-size: 15px;
+  line-height: 22.5px;
+  margin-bottom: 8px;
+  margin-top: 30px;
+  text-align: center;
+}
+.contact {
+  text-decoration: none;
+}
