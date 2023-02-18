@@ -4,11 +4,18 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 15px;
+  align-items: center;
+  justify-content: center;
 }
 .container {
   display: block;
-  margin: 30px 100px 30px 100px;
-  max-width: 900px;
+  margin: 20px 100px 20px 100px;
+  max-width: 740px;
+  border-radius: 30px;
+  border: groove;
+  border-color: silver;
+  box-shadow: 8px 8px 26px rgb(32 32 32 / 57%);
+  padding-top: 15px;
 }
 h1 {
   color: rgb(41, 40, 40);
