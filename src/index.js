@@ -42,16 +42,19 @@ function handleSubmit(event) {
 
 function showTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
-  console.log(response.data);
-  let degrees = document.querySelector("#api-temp");
-  degrees.innerHTML = `${temperature}`;
-  let humidity = document.querySelector("#api-humid");
-  humidity.innerHTML = `Humidity ${response.data.main.humidity}%`;
-  let wind = document.querySelector("#api-wind");
-  wind.innerHTML = `Windspeed ${response.data.wind.speed}km/h`;
+
+  document.querySelector("#api-temperature").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  document.querySelector(
+    "#api-humidity"
+  ).innerHTML = `Humidity ${response.data.main.humidity}%`;
+  document.querySelector(
+    "#api-wind"
+  ).innerHTML = `Windspeed ${response.data.wind.speed}m/ph`;
+
   document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
+    response.data.weather[0].description;
 }
 // position challenge
 function getCurrentLocation() {
