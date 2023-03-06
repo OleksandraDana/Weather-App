@@ -102,3 +102,11 @@ p {
 .contact {
   text-decoration: none;
 }
+h2 {
+  margin-bottom: 0;
+  color: #5c636a;}
+
+  h2:first-letter {
+  text-transform: capitalize;
+}
+
