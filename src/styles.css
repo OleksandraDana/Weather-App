@@ -110,3 +110,13 @@ h2 {
   text-transform: capitalize;
 }
 
+.active {
+  color: rgb(32, 33, 36);
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+}

@@ -42,10 +42,11 @@ function handleSubmit(event) {
 
 function showTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
-
-  document.querySelector("#api-temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+celsiusTemperature = response.data.main.temp;
+temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  //document.querySelector("#api-temperature").innerHTML = Math.round(
+  //  response.data.main.temp
+  //);
   document.querySelector(
     "#api-humidity"
   ).innerHTML = `Humidity ${response.data.main.humidity}%`;
@@ -65,6 +66,25 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#api-temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+};
+
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#api-temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
 // position challenge
 function getCurrentLocation() {
   event.preventDefault();
@@ -78,6 +98,12 @@ function showLocation(position) {
 
   axios.get(location).then(showTemperature);
 }
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
 let userForm = document.querySelector(".search-form");
 userForm.addEventListener("submit", handleSubmit);
