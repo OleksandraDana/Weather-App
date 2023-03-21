@@ -42,8 +42,10 @@ function handleSubmit(event) {
 
 function showTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
-celsiusTemperature = response.data.main.temp;
-temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  celsiusTemperature = response.data.main.temp;
+  let temperatureElement = document.querySelector("#api-temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
   //document.querySelector("#api-temperature").innerHTML = Math.round(
   //  response.data.main.temp
   //);
@@ -74,7 +76,7 @@ function showFahrenheitTemperature(event) {
   fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-};
+}
 
 function showCelsiusTemperature(event) {
   event.preventDefault();
