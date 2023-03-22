@@ -46,22 +46,9 @@ li {
   line-height: 16px;
   padding: 5px;
 }
-.card-group {
-  color: rgb(55, 18, 18);
-  line-height: 20px;
-  max-width: 850px;
-  margin-top: 70px;
-  text-align: center;
-}
-.card {
-  border-color: rgb(34, 92, 78);
-  border-radius: 20px;
-  background-color: rgb(62, 157, 152);
-}
-.card-title {
-  color: rgb(202, 197, 197);
-  font-weight: 90px;
-}
+
+
+
 .temptoday {
   color: rgb(32, 33, 36);
   font-family: Google Sans, arial, sans-serif;
@@ -80,6 +67,7 @@ h5 {
 }
 .icon {
   margin-left: 10px;
+  
 }
 p {
   font-size: 40px;
@@ -119,4 +107,18 @@ h2 {
 }
 a {
   text-decoration: none;
+}
+.weather-forecast {
+  text-align: center;
+}
+.weather-forecast-date {
+  font-size: 16px;
+  color: rgb(44, 45, 46);
+  font-weight: 600;
+}
+.weather-forecast-tempereatures {
+  font-size: 16px;
+}
+.weather-forecast-tempereature-max {
+ font-weight:600;
 }
