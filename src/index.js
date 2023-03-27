@@ -22,6 +22,36 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    
+      <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+        <div>
+          <img
+            src="http://openweathermap.org/img/wn/01d@2x.png"
+            alt=""
+            width="48px"
+          />
+        </div>
+        <div class="weather-forecast-tempereatures">
+          <span class="weather-forecast-tempereature-max">18° </span>
+          <span class="weather-forecast-temperature-min">12°</span>
+        </div>
+      </div>
+    
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function searchCity(city) {
   let apiKey = "197a5ad85f9efe7ac594ce5195482502";
@@ -37,17 +67,12 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
-//weather from API
-
 function showTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   celsiusTemperature = response.data.main.temp;
   let temperatureElement = document.querySelector("#api-temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
-  //document.querySelector("#api-temperature").innerHTML = Math.round(
-  //  response.data.main.temp
-  //);
   document.querySelector(
     "#api-humidity"
   ).innerHTML = `Humidity ${response.data.main.humidity}%`;
@@ -86,7 +111,7 @@ function showCelsiusTemperature(event) {
 }
 
 let celsiusTemperature = null;
-// position challenge
+
 function getCurrentLocation() {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showLocation);
@@ -111,4 +136,6 @@ userForm.addEventListener("submit", handleSubmit);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
 searchCity("New York");
+displayForecast();
