@@ -22,7 +22,6 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-//challenge2
 
 function searchCity(city) {
   let apiKey = "197a5ad85f9efe7ac594ce5195482502";
